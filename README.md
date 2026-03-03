@@ -196,6 +196,9 @@ git tag -a v1.3.4 -m "Release v1.3.4 – Critical memory leak fix (backport)"
 HASH=$(git log --oneline -1 | awk '{print $1}')
 git switch main
 git cherry-pick $HASH
+# ⚠️ Si un conflit apparaît sur src/features.js (car main a avancé avec les exercices 1 et 2) :
+#   → c'est normal ! Résoudre en gardant TOUTES les lignes des deux versions
+#   → git add src/features.js && git cherry-pick --continue
 
 # Créer le tag sur main également (si applicable)
 git tag -a v2.0.1 -m "Release v2.0.1 – Cherry-pick memory leak fix"
